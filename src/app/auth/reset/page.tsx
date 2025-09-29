@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState, FormEvent } from 'react'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import TailSpin from 'react-loader-spinner';
+//import TailSpin from 'react-loader-spinner';
 
 export default function ForgetPassword() {
   const Router = useRouter();
@@ -89,16 +89,7 @@ export default function ForgetPassword() {
               </div>
               {
                 loading ? <button type="button" className="w-full flex items-center justify-center text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
-                  <TailSpin
-                    height="20"
-                    width="20"
-                    color="white"
                  
-                    radius={1}
-                  
-              
-                    visible={true}
-                  />
                 </button> : <button type="submit" className="w-full text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">Reset</button>
               }
 
