@@ -1,6 +1,7 @@
 "use client"; // only for App Router
 
 import { useState , useEffect } from "react";
+import Cookies from 'js-cookie';
 
 
 export default function CreateOrderPage() {
@@ -26,14 +27,16 @@ export default function CreateOrderPage() {
   
 	
 	//console.log(products);
-	const user = JSON.parse(localStorage.getItem('user') || '{}');
+	//const user = JSON.parse(localStorage.getItem('user') || '{}');
   //console.log("Form user:",user._id);
+
+  const user_id = Cookies.get('user_id');
   const [formData, setFormData] = useState({
     customerName: "",
     quantity: 1,
     address: "",
     product_id:'',
-	user_id:user._id,
+	user_id:user_id?.slice(1, -1),
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");

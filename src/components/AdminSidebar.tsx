@@ -9,10 +9,12 @@ import { MdOutlinePendingActions } from 'react-icons/md'
 import { GrCompliance } from 'react-icons/gr'
 import { setNavActive } from '@/utils/AdminNavSlice'
 import { useDispatch } from 'react-redux'
+import Cookies from 'js-cookie';
 
 
 export default function AdminSidebar() {
     const dispatch =  useDispatch();
+    const userrole = Cookies.get('role'); 
 	
 	
 	
@@ -26,10 +28,19 @@ export default function AdminSidebar() {
 				
 				<li onClick={() => dispatch(setNavActive('Base'))} className='py-3 px-1 mb-3'><button className='flex items-center justify-center'> <AiFillHome className='mx-2' /> Home</button></li>
                   
+					{userrole?.slice(1, -1) === "buyer" ? (
+                        <>
+                <li className='py-3 px-1 mb-3'><Link href={'/opportunity/'} className='flex items-center justify-center'> <IoIosAddCircle className='mx-2' /> Create Opportunity</Link></li>
 					
 				
-				
-				<li className='py-3 px-1 mb-3'><Link href={'/category/list'} className='flex items-center justify-center'> <IoIosAddCircle className='mx-2' />Category List</Link></li>
+					<li className='py-3 px-1 mb-3'><Link href={'/opportunity/list'} className='flex items-center justify-center'> <IoIosAddCircle className='mx-2' /> Opportunity List</Link></li>
+					</>
+      
+                    ) : (
+
+                         <>
+
+                        <li className='py-3 px-1 mb-3'><Link href={'/category/list'} className='flex items-center justify-center'> <IoIosAddCircle className='mx-2' />Category List</Link></li>
 				
 				
 				 <li className='py-3 px-1 mb-3'><Link href={'/category/add-category'} className='flex items-center justify-center'> <IoIosAddCircle className='mx-2' /> Add Category</Link></li>
@@ -60,7 +71,12 @@ export default function AdminSidebar() {
 					
                     <li  className='py-3 px-1 mb-3' onClick={() => dispatch(setNavActive('activeDeliveredOrder'))}><button className='flex items-center justify-center'> <GrCompliance className='mx-2' />Completed orders</button></li>
 					
+                    </>
                     
+                    )}
+				
+				
+				
 					
                    
 					

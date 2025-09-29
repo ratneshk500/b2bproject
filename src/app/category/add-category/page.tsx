@@ -88,8 +88,9 @@ export default function AddCategory() {
 
 
     useEffect(() => {
-        const user: userData | null = JSON.parse(localStorage.getItem('user') || '{}');
-        if (!Cookies.get('token') || user?.role !== 'admin') {
+        //const user: userData | null = JSON.parse(localStorage.getItem('user') || '{}');
+        const userrole = Cookies.get('role') 
+        if (!Cookies.get('token') || userrole?.slice(1, -1) !== 'admin') {
             Router.push('/')
         }
         

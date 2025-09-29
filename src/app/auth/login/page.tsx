@@ -38,10 +38,18 @@ export default function Login() {
         if (res.success) {
             setLoding(false);
             Cookies.set('token', res?.finalData?.token);
-            localStorage.setItem('user', JSON.stringify(res?.finalData?.user));
-            const userData = localStorage.getItem('user');
+            Cookies.set('email', JSON.stringify(res?.finalData?.user));
+            Cookies.set('email', JSON.stringify(res?.finalData?.user.email));
+            Cookies.set('user_id', JSON.stringify(res?.finalData?.user._id));
+             Cookies.set('role', JSON.stringify(res?.finalData?.user.role));
+              Cookies.set('name', JSON.stringify(res?.finalData?.user.name));
+            //localStorage.setItem('user', JSON.stringify(res?.finalData?.user));
+            //const userData = localStorage.getItem('user');
+            const userData = Cookies.get('userdata');
+            
+            
             const userDataString = typeof userData === 'string' ? userData : '';
-            dispatch(setUserData(JSON.parse(userDataString)));
+            //dispatch(setUserData(JSON.parse(userDataString)));
             
 			alert(res?.finalData?.user?.role);
 			
@@ -55,7 +63,7 @@ export default function Login() {
             }
 			
             else {
-                Router.push('/')
+                 Router.push('/Dashboard')
             }
         }
         else {

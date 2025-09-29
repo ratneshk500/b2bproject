@@ -44,11 +44,12 @@ interface userData {
 export default function Dashboard() {
   
  
-  const Router = useRouter();
-  const dispatch = useDispatch();
-
+  //const Router = useRouter();
+  //const dispatch = useDispatch();
+/*
   useEffect(() => {
-    const user: userData | null = JSON.parse(localStorage.getItem('user') || '{}');
+    
+    //const user: userData | null = JSON.parse(localStorage.getItem('user') || '{}');
    
 	//if (!Cookies.get('token') || user?.role !== '' ) {
      //Router.push('/')
@@ -56,7 +57,7 @@ export default function Dashboard() {
     dispatch(setNavActive('Base'))
   }, [dispatch, Cookies, Router])
 
-
+*/
 		
 /*
   const { data: categoryData, isLoading: categoryLoading } = useSWR('/gettingAllCategoriesFOrAdmin', get_all_categories)

@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 
 export default function AdminNavbar() {
 	
-	 const [session, setSession] = useState(null);
+	// const [session, setSession] = useState(null);
 /*
   useEffect(() => {
     (async () => {
@@ -22,7 +22,7 @@ export default function AdminNavbar() {
   }, []);
 	*/
 	
-	const user = JSON.parse(localStorage.getItem('user') || '{}');
+	//const user = JSON.parse(localStorage.getItem('user') || '{}');
 	
 	//console.log(user.name);
 	
@@ -31,10 +31,18 @@ export default function AdminNavbar() {
     const router =  useRouter();
     const dispatch =  useDispatch();
 
-
+    
+const userrole = Cookies.get('role') 
+const username = Cookies.get('name');
     const handleLogout = () => {
         Cookies.remove('token');
-        localStorage.clear();
+
+        Cookies.remove('email');
+        Cookies.remove('userdata');
+        Cookies.remove('user_id');
+        Cookies.remove('role');
+        Cookies.remove('name');
+        //localStorage.clear();
 		router.push("/auth/login");
         //location.reload();
     }
@@ -59,7 +67,7 @@ export default function AdminNavbar() {
                 </div>
             </div>
             <div className="flex-none">
-			Hi {user.name}
+			Hi {username?.slice(1, -1)}
 			
                 <div className="dropdown dropdown-end">
 				
@@ -75,7 +83,7 @@ export default function AdminNavbar() {
 						<li>
                             <Link href={""} className="justify-between">
                                 
-                                <span className="badge">{user.role} Dashboard</span>
+                                <span className="badge">{userrole?.slice(1, -1)} Dashboard</span>
                             </Link>
                         </li>
 						

@@ -29,21 +29,10 @@ import { get_all_orders } from '@/Services/Admin/order';
 
 
 
-export default function Dashboard() {
+export default function create_order() {
   
  
-  const Router = useRouter();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const user= JSON.parse(localStorage.getItem('user') || '{}');
-   
-	//if (!Cookies.get('token') || user?.role !== '' ) {
-     //Router.push('/')
-    //}
-    dispatch(setNavActive('Base'))
-  }, [dispatch, Cookies, Router])
-
+ 
 
 		
 /*

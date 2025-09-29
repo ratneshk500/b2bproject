@@ -32,22 +32,13 @@ import { setNavActive } from '@/utils/AdminNavSlice';
 
 
 
-export default function Dashboard() {
+export default function oppurtunity() {
   
  
-  const Router = useRouter();
-  const dispatch = useDispatch();
+ // const Router = useRouter();
+  //const dispatch = useDispatch();
 
-  useEffect(() => {
-    //const user: userData | null = JSON.parse(localStorage.getItem('user') || '{}');
-  
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-
-	//if (!Cookies.get('token') || user?.role !== '' ) {
-     //Router.push('/')
-    //}
-    dispatch(setNavActive('Base'))
-  }, [dispatch, Cookies, Router])
+ 
 
 
 		

@@ -97,15 +97,7 @@ export default function  Register (){
 
               {
                                     loading ? <button type="button" className="w-full flex items-center justify-center text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                        <TailSpin
-                                            height="20"
-                                            width="20"
-                                            color="white"
-                                           
-                                            radius={1}
                                        
-                                            visible={true}
-                                        />
                                         </button> : <button type="submit" className="w-full text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign up</button>
                                 }
 

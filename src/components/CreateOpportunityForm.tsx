@@ -1,6 +1,7 @@
 "use client"; // only for App Router
 
 import { useState , useEffect } from "react";
+import Cookies from 'js-cookie';
 //import { useState } from "react";
 
 
@@ -12,8 +13,9 @@ export default function NewOpportunityForm() {
 	
 	//const [products, setProducts] = useState([]);
 	
-	const user = JSON.parse(localStorage.getItem('user') || '{}');
+	///const user = JSON.parse(localStorage.getItem('user') || '{}');
   //console.log("Form user:",user._id);
+  const user_id = Cookies.get('user_id');
   const [formData, setFormData] = useState({
     title: "",
 	description:"",
@@ -26,7 +28,7 @@ export default function NewOpportunityForm() {
 	duration:"",
 	eligibilityfilters:"",
   category_id:0,
-	user_id:user._id,
+	user_id:user_id?.slice(1, -1),
   });
 	const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");

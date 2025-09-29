@@ -14,7 +14,8 @@ import { MdFavorite } from 'react-icons/md';
 export default function Navbar() {
     const router = useRouter()
     const [Scrolled, setScrolled] = useState(false);
-    const user =  useSelector((state : RootState) => state.User.userData)
+    //const user =  useSelector((state : RootState) => state.User.userData)
+    const username = Cookies.get('name');
 
     useEffect(() => {
         window.onscroll = () => {
@@ -27,7 +28,12 @@ export default function Navbar() {
 
     const handleLogout = () => {
         Cookies.remove('token');
-        localStorage.clear();
+        Cookies.remove('email');
+                Cookies.remove('userdata');
+                Cookies.remove('user_id');
+                Cookies.remove('role');
+                Cookies.remove('name');
+        ///localStorage.clear();
         location.reload();
     }
 
@@ -50,17 +56,20 @@ export default function Navbar() {
                 <div className="flex-none">
 
                     {
-                        user ?
+                        username ?
                         <div className='flex items-center justify-center  min-h-full'>
                          <button onClick={handleLogout} className='btn text-white mx-2'>logout</button>
+                         
+                         {/* 
                          <button onClick={() => router.push("/order/create-order")} className='btn btn-circle  mx-2'><FaCartArrowDown className='text-white text-xl' /></button>
                          <button onClick={() => router.push("/bookmark")} className='btn btn-circle  mx-2'><MdFavorite className='text-white text-xl' /></button>
                          <button onClick={() => router.push("/order/view-orders")} className='btn btn-circle  mx-2'><CiDeliveryTruck className='text-white text-xl' /></button>
-                         
+                         */}
                         </div>
                             :
                             <button onClick={() => router.push('/auth/login')} className='btn text-white mx-2'>Login</button>
                     }
+                  
 
 
                 </div>
