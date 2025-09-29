@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
-import  TailSpin  from 'react-loader-spinner';
+//import  TailSpin  from 'react-loader-spinner';
 import { get_category_by_id, update_a_category } from '@/Services/Admin/category';
 import { useRouter } from 'next/navigation';
 import useSWR from 'swr'
@@ -154,15 +154,7 @@ export default function Page({ params, searchParams }: { params: pageParam, sear
             {
                 isLoading || loader ? (
                     <div className='w-full  flex-col h-96 flex items-center justify-center '>
-                        <TailSpin
-                            height="50"
-                            width="50"
-                            color="orange"
-                            
-                            radius={1}
-                           
-                            visible={true}
-                        />
+                        
                         <p className='text-sm mt-2 font-semibold text-orange-500'>updating Category Hold Tight ....</p>
                     </div>
                 ) : (
