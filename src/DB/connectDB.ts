@@ -13,7 +13,7 @@ const options: connectedOptions = {
 
 // connecting to database
 const connectDB = async () => {
-    const connectionUrl: string = process.env.DB_URI as string;
+    const connectionUrl: string = process.env.DB_URI_MONGODB_URI as string;
     mongoose.connect(connectionUrl , options )
         .then(() => console.log(`Database connected successfully`))
         .catch((err) => console.log("Getting Error from DB connection" + err.message))
